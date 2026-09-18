@@ -87,6 +87,8 @@ section.block{padding:130px 0}
 .rows li{display:grid;grid-template-columns:120px 1fr;gap:12px}
 .rows span{color:var(--muted);font-weight:400}
 @media (max-width:760px){.rows li{grid-template-columns:1fr;gap:0}}
+.fit em{min-width:118px !important}
+@media (max-width:760px){.fit li em{display:block}}
 .sub-list{list-style:none;display:grid;gap:8px}
 .sub-list em{font-style:normal;display:inline-block;min-width:64px;font-size:.8rem;color:var(--muted);font-weight:400}
 .sub-list time{display:inline-block;min-width:150px;font-size:.88rem;color:var(--muted);font-weight:400;font-family:Montserrat,sans-serif}
@@ -130,6 +132,34 @@ section.block{padding:130px 0}
 .ps p{color:#d6d6d6;line-height:1.65}
 .ps .arrow{color:#666;padding:6px 0 6px 20px}
 @media (max-width:760px){.brief{grid-template-columns:1fr}}
+.fitbg{background:var(--soft)}
+.fitgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.fitcard{background:var(--bg);border-top:3px solid var(--accent);border-radius:0 0 16px 16px;padding:28px 26px 30px}
+.fitcard .en{font-size:1.35rem;font-weight:800;line-height:1.15}
+.fitcard h3{font-size:.9rem;font-weight:500;color:var(--muted);margin-top:4px}
+.fit-def{margin-top:22px;font-size:.9rem;color:var(--muted);padding-left:10px;border-left:2px solid var(--line)}
+.story{display:grid;grid-template-columns:52px 1fr;gap:10px 10px;margin-top:14px}
+.story dt{font-size:.78rem;font-weight:700;color:var(--muted);padding-top:3px}
+.story dd{font-size:.95rem;line-height:1.6}
+.fitgrid{align-items:stretch}
+.fit-title{display:inline;margin-top:0;font-size:1.3rem;font-weight:800;letter-spacing:-0.03em;color:var(--text);background:linear-gradient(transparent 58%,rgba(243,115,33,.28) 58%);padding:0 2px}
+.fitcard .fit-title{display:table;margin-top:22px}
+.fit-body{margin-top:8px;color:var(--text);line-height:1.75}
+@media (max-width:760px){.fitgrid{grid-template-columns:1fr}}
+.fitcard{position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+.fitcard:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.07)}
+.fitcard::after{content:"";position:absolute;top:-34px;right:-34px;width:120px;height:120px;border-radius:50%;opacity:.22;pointer-events:none}
+.fitcard:nth-child(1)::after{background:repeating-linear-gradient(90deg,#f37321 0 3px,transparent 3px 9px)}
+.fitcard:nth-child(2)::after{background:radial-gradient(circle,#e0457b 2.6px,transparent 3px) 0 0/11px 11px}
+.fitcard:nth-child(3)::after{background:conic-gradient(#b5b55a 25%,transparent 0 50%,#b5b55a 0 75%,transparent 0) 0 0/16px 16px}
+.fitcard>*{position:relative;z-index:1}
+.story{position:relative}
+.story::before{content:"";position:absolute;left:3px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.story dt{padding-left:14px;position:relative}
+.story dt::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--bg);border:1.5px solid var(--muted)}
+.story dt:last-of-type::before{background:var(--accent);border-color:var(--accent)}
+.story dd:last-of-type{font-weight:700}
+@media (prefers-reduced-motion:reduce){.fitcard{transition:none}.fitcard:hover{transform:none}}
 /* journey: 세로 타임라인 */
 .timeline{list-style:none;border-top:2px solid var(--text)}
 .timeline>li{display:grid;grid-template-columns:90px 1fr auto;gap:28px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}
@@ -172,7 +202,7 @@ footer a{color:#fff}
 </head>
 <body>
 <nav><div class="wrap"><b class="en logo">LEE JUYEONG</b>
-<ul><li><a href="#about">About</a></li><li><a href="#work">Key Work</a></li><li><a href="#journey">Journey</a></li></ul></div></nav>
+<ul><li><a href="#about">About</a></li><li><a href="#work">Key Work</a></li><li><a href="#journey">Journey</a></li><li><a href="#fit">Fit</a></li></ul></div></nav>
 
 <section class="hero">
   <svg id="bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -219,7 +249,7 @@ footer a{color:#fff}
 </section>
 
 <section class="block" id="about"><div class="wrap">
-  <div class="head"><h2 class="en">About <i>Me</i></h2><p>저는 이런 사람입니다</p></div>
+  <div class="head"><h2 class="en">About <i>Me</i></h2><p>안녕하세요, 투자심사 부문 지원자 이주영입니다</p></div>
   <div class="about">
     <div class="group">
       <h3><span class="en">Character</span>인성</h3>
@@ -350,6 +380,47 @@ footer a{color:#fff}
   </ol>
 </div></section>
 
+<section class="block fitbg" id="fit"><div class="wrap">
+  <div class="head"><h2 class="en">Talent <i>Fit</i></h2><p>한화금융 인재상에 맞닿은 저의 이야기입니다</p></div>
+  <div class="fitgrid">
+      <article class="fitcard">
+        <p class="en">Discipline</p>
+        <h3>철저한 자기규율</h3>
+        <p class="fit-def">어려워도 매일 실천하며 끝까지 해냅니다</p>
+        <p class="fit-title">하프마라톤 도전</p>
+        <dl class="story">
+          <dt>시작</dt><dd>3km도 버거웠던 체력을 바꾸고 싶었습니다</dd>
+          <dt>과정</dt><dd>8개월간 매일 아침 10km를 달리고, 동아리 훈련 프로그램도 직접 만들었습니다</dd>
+          <dt>결과</dt><dd>하프마라톤 완주, 여자 20대 2위</dd>
+          <dt>배움</dt><dd>매일의 꾸준함이 약점을 강점으로 바꾼다는 것</dd>
+        </dl>
+      </article>
+      <article class="fitcard">
+        <p class="en">Creative Thinking</p>
+        <h3>창의적 문제 해결</h3>
+        <p class="fit-def">호기심과 질문으로 더 나은 방법을 찾습니다</p>
+        <p class="fit-title">IPO DB 자동화 구축</p>
+        <dl class="story">
+          <dt>시작</dt><dd>IPO 데이터를 매번 새로 조사·집계해야 했습니다</dd>
+          <dt>과정</dt><dd>AI로 데이터를 Jupyter에 연결하고 추출 템플릿을 만들었습니다</dd>
+          <dt>결과</dt><dd>반복 작업 없이 실행 한 번으로 데이터 추출</dd>
+          <dt>배움</dt><dd>익숙한 방식에 질문을 던질 때 더 나은 방법이 보인다는 것</dd>
+        </dl>
+      </article>
+      <article class="fitcard">
+        <p class="en">Sense of Purpose</p>
+        <h3>뚜렷한 목적의식</h3>
+        <p class="fit-def">왜 하는지 먼저 묻고, 본질에 맞게 행동합니다</p>
+        <p class="fit-title">어르신 유치원 봉사활동</p>
+        <dl class="story">
+          <dt>시작</dt><dd>어르신 유치원 봉사활동을 직접 추진했습니다</dd>
+          <dt>과정</dt><dd>‘어르신께 실제로 도움이 되는가’를 고민해 성함 외우기, 부축 방향 등 가이드라인을 만들었습니다</dd>
+          <dt>결과</dt><dd>이번 달 봉사왕 달성</dd>
+          <dt>배움</dt><dd>본질을 먼저 정하면 해야 할 일이 선명해진다는 것</dd>
+        </dl>
+      </article>
+  </div>
+</div></section>
 <div id="zoom" role="dialog" aria-label="크게 보기"><img alt=""></div>
 <footer>
   <p class="en">Thank <span>you</span></p>
